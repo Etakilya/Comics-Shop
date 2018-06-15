@@ -1,0 +1,8 @@
+<div class="container">
+  <form class="modal-content animate" action="{% url 'reg' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+
+    <input class="button lg" type="submit" value="Sign up">
+  </form>
+</div>

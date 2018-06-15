@@ -1,0 +1,8 @@
+{% load static %}
+<html>
+{% if user.is_authenticated %}
+<li><a href="{% url 'login' %}">Logout{{ request.user }}</a></li>
+{% else %}
+<li><a href="{% url 'logout' %}">Login</a></li>
+{% endif %}
+</html>

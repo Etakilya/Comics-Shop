@@ -1,0 +1,25 @@
+<html>
+<body>
+{% load static %}
+<html>
+{% if user.is_authenticated %}
+<li><a href="{% url 'login' %}">Logout{{ request.user }}</a></li>
+{% else %}
+<li><a href="{% url 'logout' %}">Login</a></li>
+{% endif %}
+</html>
+<h1>{{title}} is working!</h1>
+{% for obj in object_list %}
+<a href='{{obj.get_absolute_url}}'>{{obj.title}}</a><br/>
+{{obj.content}}<br/>
+{{obj.timestamp}}<br/>
+{{obj.updated}}<br/>
+{{obj.id}}<br/>
+<a href="{% url 'comment' %}">Write a comment</a>
+{% endfor %}
+<form method='POST' action=''>{% csrf_token %}
+{{form.as_p}}
+<input type='submit', value='Create Post'/>
+</form>
+
+</html>
